@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Deception Controller</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container" style="width:100%">
+		<form method="POST">
+		<div class="card-header font-weight-bold text-center">Deception Controller
+				<div class="card-body">
+
+				<label>{{form.controller.label}}</label>
+	  					<select class="form-control" name={{form.controller.name}} >
+	  					{% for id,name in form.controller.field.choices %}
+	  					<option value={{ id }}>{{ name }}</option>
+	  					{% endfor %}
+	  					</select>					
+				</div>
+			</div>
+		
+
+		{%csrf_token%}
+
+	  	{{ form.errors }}
+		{{ form.non_field_errors }}
+		<div class="d-table w-100 p-3">
+			<button type="submit" class="btn btn-primary btn-lg btn-block">Send Action</button>
+		</div>
+		</form>
+		</div>
+</body>
+</html>

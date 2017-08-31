@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Deception Configuration</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+</head>
+<body>
+<div class="container" style="width:100%">
+	<form method="POST">
+<div class="card">
+	<table class="table table-sm table-active">
+	  <thead>
+	    <tr>
+	      <th></th>
+	      <th></th>
+	      <th class="text-center"><h2>Configure Deception Unit</h2></th>
+	      <th></th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  	 <tr>
+	      <th scope="row">HTTP</th>
+	       <td>
+	  	  	<label>{{form.http_enabled.label}}</label>
+	  					{{form.http_enabled}} 
+	  	  </td>
+	      <td style="width: 70%"><label> {{form.http_banner.label}}</label>
+	  					{{form.http_banner}}</td>
+	      <td style="width: 12%"><label> {{form.http_port.label}}</label>
+	  					{{form.http_port}}	</td>
+	      <td style="width: 14%"><label>{{form.http_skin.label}}</label>
+	  					<select class="form-control" name={{form.http_skin.name}}>
+	  					{% for id,name in form.http_skin.field.choices %}
+	  					<option value={{ id }}>{{ name }}</option>
+	  					{% endfor %}
+	  					</select>
+	  	  </td>
+	  	 
+	    </tr>
+	    <tr>
+	      <th class="text-justify" scope="row">FTP</th>
+	      <td><label>{{form.ftp_enabled.label}}</label>
+	  					{{form.ftp_enabled}}</td>
+	      <td style="width:70%"><label> {{form.ftp_banner.label}}</label>
+	  					{{form.ftp_banner}}	
+	  	  </td>
+	      <td><label> {{form.ftp_port.label}}</label>
+	  					{{form.ftp_port}}
+	  	  </td>
+	      
+	  	 
+	    </tr>
+
+	   
+	    <tr>
+	      <th scope="row">MySQL</th>
+	      <td ><label>{{form.mysql_enabled.label}}</label>
+	  					{{form.mysql_enabled}} </td>
+	      <td style="width: 70%"><label> {{form.mysql_banner.label}}</label>
+	  					{{form.mysql_banner}}</td>
+	      <td><label> {{form.mysql_port.label}}</label>
+	  					{{form.mysql_port}}</td>
+	    </tr>
+
+	     <tr>
+	      <th scope="row">SSH</th>
+	      <td ><label>{{form.ssh_enabled.label}}</label>
+	  					{{form.ssh_enabled}} </td>
+	      <td style="width: 70%"><label> {{form.ssh_version.label}}</label>
+	  					{{form.ssh_version}}</td>
+	      <td><label> {{form.ssh_port.label}}</label>
+	  					{{form.ssh_port}}</td>
+	    </tr>
+
+	     <tr>
+	      <th scope="row">Telnet</th>
+	      <td ><label>{{form.telnet_enabled.label}}</label>
+	  					{{form.telnet_enabled}} </td>
+	      <td style="width: 70%"><label> {{form.telnet_banner.label}}</label>
+	  					{{form.telnet_banner}}</td>
+	      <td><label> {{form.telnet_port.label}}</label>
+	  					{{form.telnet_port}}</td>
+	    </tr> 
+
+
+
+	  </tbody>
+</table>
+
+
+<div class="card-header font-weight-bold">SMTP
+      	<div class="card-body">
+      		<div class="form-row">	  						
+	  			<div class="col" style="width: 80%">
+	  				<label> {{form.mailserver.label}}</label>
+	  					{{form.mailserver}}	  			
+	  			</div>
+	  			<div class="col-auto">
+	  				<label> {{form.mailserverPort.label}}</label>
+	  					{{form.mailserverPort}}	
+	  			</div>
+
+	  			<!--div class="col-auto">
+	  				<label>{{form.smtp_enabled.label}}</label>
+	  					{{form.smtp_enabled}} 
+	  			</div-->
+
+	  		</div>
+	  		<div class="form-row">	  			
+	  			<div class="col" style="width: 50%">
+	  				<label> {{form.fromaddr.label}}</label>
+	  					{{form.fromaddr}}	  			
+	  			</div>
+	  			<div class="col" style="width: 50%">
+	  				<label> {{form.toaddr.label}}</label>
+	  					{{form.toaddr}}	  			
+	  			</div>
+	  		</div>
+
+	  		<div class="form-row">	
+	  			<div class="col">
+	  				<label> {{form.subject.label}}</label>
+	  					{{form.subject}}	 
+	  			</div>
+	  		</div>
+
+	  		<div class="form-row">		  			
+	  			<div class="col" style="width: 50%">
+	  				<label> {{form.username.label}}</label>
+	  					{{form.username}}	  			
+	  			</div>
+	  			<div class="col-auto" style="width: 50%">
+	  				<label> {{form.password.label}}</label>
+	  					{{form.password}}	 
+	  			</div> 
+	  			
+	  		</div> 
+      	</div>
+     </div>
+
+ <div class="card-header font-weight-bold" style="width: 20rem;">Other Services
+      	<div class="card-body">
+      		<div class="form-row">	
+      		 <div class="col-auto">
+	  				<label>{{form.rdp_enabled.label}}</label>
+	  					{{form.rdp_enabled}} 
+	  		 </div>
+	  		 <div class="col-auto">
+	  				<label>{{form.sip_enabled.label}}</label>
+	  					{{form.sip_enabled}} 
+	  			</div> 
+	  		<div class="col-auto">
+	  				<label>{{form.snmp_enabled.label}}</label>
+	  					{{form.snmp_enabled}} 
+	  			</div> 
+	  		<div class="col-auto">
+	  				<label>{{form.mssql_enabled.label}}</label>
+	  					{{form.mssql_enabled}} 
+	  			</div> 
+	  		<div class="col-auto">
+	  				<label>{{form.vnc_enabled.label}}</label>
+	  					{{form.vnc_enabled}} 
+	  			</div>  
+
+      		</div>
+      	</div>
+ </div>
+     
+     
+	  	
+	  	{%csrf_token%}
+
+	  	{{ form.errors }}
+		{{ form.non_field_errors }}
+		<div class="d-table w-100 p-3">
+			<button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+		</div>
+	  	
+  	</form>
+	</div>
+</div>
+</body>
+</html>
